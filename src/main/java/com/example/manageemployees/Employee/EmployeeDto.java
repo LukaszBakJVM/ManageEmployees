@@ -1,26 +1,13 @@
 package com.example.manageemployees.Employee;
 
+import jakarta.persistence.Column;
 
-import jakarta.persistence.*;
-
-@Entity
-public class Employee {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class EmployeeDto {
     private long id;
-    @Column (name = "Imie")
     private String firstName;
-    @Column (name = "Nazwisko")
     private String lastName;
-    @Column(name = "Wiek")
     private int age;
-    @Column(name = "Typ umowy")
     private   String contractType;
-    @Column (name = "wyplata")
-    private double paycheck;
-
-    public Employee() {
-    }
 
     public long getId() {
         return id;
@@ -60,13 +47,5 @@ public class Employee {
 
     public void setContractType(String contractType) {
         this.contractType = contractType;
-    }
-
-    public double getPaycheck() {
-        return paycheck;
-    }
-
-    public void setPaycheck(double paycheck) {
-        this.paycheck = paycheck;
     }
 }
