@@ -3,6 +3,9 @@ package com.example.manageemployees.Employee;
 
 import com.example.manageemployees.Company.ContractType;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
+
 
 
 @Entity
@@ -14,6 +17,8 @@ public class Employee {
     private String firstName;
     @Column (name = "Nazwisko")
     private String lastName;
+    @NotNull
+    @Min(value = 18)
     @Column(name = "Wiek")
     private int age;
 
