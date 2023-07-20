@@ -1,0 +1,1 @@
+insert into Contract_Type (uop, uzl) values ('Grenoble/Saint-Geoirs', 'Giffie');

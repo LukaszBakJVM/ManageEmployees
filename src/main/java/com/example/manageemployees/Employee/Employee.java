@@ -17,7 +17,7 @@ public class Employee {
     @Column(name = "Wiek")
     private int age;
 
-    @Column (name = "wyplata")
+    @Column (name = "dochod")
     private double paycheck;
     @ManyToOne()
 

@@ -1,12 +1,13 @@
 package com.example.manageemployees.Employee;
 
-import jakarta.persistence.Column;
+
 
 public class EmployeeDto {
     private long id;
     private String firstName;
     private String lastName;
     private int age;
+    private double paycheck;
     private   int contractType;
 
 
@@ -40,6 +41,14 @@ public class EmployeeDto {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public double getPaycheck() {
+        return paycheck;
+    }
+
+    public void setPaycheck(double paycheck) {
+        this.paycheck = paycheck;
     }
 
     public int getContractType() {
