@@ -1,7 +1,9 @@
 package com.example.manageemployees.Employee;
 
 
+import com.example.manageemployees.Company.ContractType;
 import jakarta.persistence.*;
+
 
 @Entity
 public class Employee {
@@ -14,10 +16,12 @@ public class Employee {
     private String lastName;
     @Column(name = "Wiek")
     private int age;
-    @Column(name = "Typ umowy")
-    private   String contractType;
+
     @Column (name = "wyplata")
     private double paycheck;
+    @ManyToOne()
+
+    private ContractType contractType;
 
     public Employee() {
     }
@@ -54,19 +58,19 @@ public class Employee {
         this.age = age;
     }
 
-    public String getContractType() {
-        return contractType;
-    }
-
-    public void setContractType(String contractType) {
-        this.contractType = contractType;
-    }
-
     public double getPaycheck() {
         return paycheck;
     }
 
     public void setPaycheck(double paycheck) {
         this.paycheck = paycheck;
+    }
+
+    public ContractType getContractType() {
+        return contractType;
+    }
+
+    public void setContractType(ContractType contractType) {
+        this.contractType = contractType;
     }
 }

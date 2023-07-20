@@ -7,7 +7,8 @@ public class EmployeeDto {
     private String firstName;
     private String lastName;
     private int age;
-    private   String contractType;
+    private   int contractType;
+
 
     public long getId() {
         return id;
@@ -41,11 +42,11 @@ public class EmployeeDto {
         this.age = age;
     }
 
-    public String getContractType() {
+    public int getContractType() {
         return contractType;
     }
 
-    public void setContractType(String contractType) {
+    public void setContractType(int contractType) {
         this.contractType = contractType;
     }
 }
