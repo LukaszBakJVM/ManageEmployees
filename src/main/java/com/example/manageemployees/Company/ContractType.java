@@ -11,8 +11,9 @@ public class ContractType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-private String uop;
- private String uzl;
+    @Column(name = "RodzajUmowy")
+    private String type;
+
 
 @OneToMany(mappedBy = "contractType")
   private List<Employee>employees=new ArrayList<>();
@@ -28,20 +29,12 @@ private String uop;
         this.id = id;
     }
 
-    public String getUop() {
-        return uop;
+    public String getType() {
+        return type;
     }
 
-    public void setUop(String uop) {
-        this.uop = uop;
-    }
-
-    public String getUzl() {
-        return uzl;
-    }
-
-    public void setUzl(String uzl) {
-        this.uzl = uzl;
+    public void setType(String type) {
+        this.type = type;
     }
 
     public List<Employee> getEmployees() {

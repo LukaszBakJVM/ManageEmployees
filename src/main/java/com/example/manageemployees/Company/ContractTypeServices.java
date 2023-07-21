@@ -12,8 +12,14 @@ public class ContractTypeServices {
     public ContractTypeServices(ContractTypeRepository repository) {
         this.repository = repository;
     }
-    List<ContractType> allContractType(){
-        return repository.findAll();
+    List<String> allContractType(){
+        return repository.findAll()
+                .stream().map(ContractType::getType)
+                .toList();
 
     }
+    ContractType addNewContractType(ContractType contractType){
+        return repository.save(contractType);
+    }
+
 }

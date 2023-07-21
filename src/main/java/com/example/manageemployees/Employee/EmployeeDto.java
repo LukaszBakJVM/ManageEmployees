@@ -2,6 +2,7 @@ package com.example.manageemployees.Employee;
 
 
 
+
 public class EmployeeDto {
     private long id;
     private String firstName;
@@ -9,6 +10,7 @@ public class EmployeeDto {
     private int age;
     private double paycheck;
     private   int contractType;
+
 
 
     public long getId() {
