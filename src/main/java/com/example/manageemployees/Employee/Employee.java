@@ -25,9 +25,9 @@ public class Employee {
 
     @Column (name = "dochod")
     private double paycheck;
-    @Transient
+
     private LocalDateTime startWork;
-    @Transient
+
     private LocalDateTime endWork;
     private long timeWork;
     @ManyToOne()
