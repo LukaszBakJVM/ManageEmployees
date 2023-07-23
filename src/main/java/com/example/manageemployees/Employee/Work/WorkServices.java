@@ -3,11 +3,13 @@ package com.example.manageemployees.Employee.Work;
 import com.example.manageemployees.Employee.Employee;
 import com.example.manageemployees.Employee.EmployeeRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 
 @Service
 public class WorkServices {
+
 
     private final EmployeeRepository repository;
 
@@ -15,12 +17,14 @@ public class WorkServices {
 
         this.repository = repository;
     }
+    @Transactional
     void start(long id){
         Employee employee = repository.findById(id).orElseThrow();
-       employee.setStartWork(LocalDateTime.now());
+       if (employee.getStartWork()==null){
+           employee.setStartWork(LocalDateTime.now());
+       }else {
+           employee.setEndWork(LocalDateTime.now());
+       }
     }
-    public void  end(long id){
-        Employee employee = repository.findById(id).orElseThrow();
-        employee.setEndWork(LocalDateTime.now());
-    }
+
 }
