@@ -1,6 +1,6 @@
-package com.example.manageemployees.Company;
+package com.example.manageEmployees.Company;
 
-import com.example.manageemployees.Employee.Employee;
+import com.example.manageEmployees.Employee.Employee;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;

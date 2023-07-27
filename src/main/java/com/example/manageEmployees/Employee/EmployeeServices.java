@@ -1,4 +1,4 @@
-package com.example.manageemployees.Employee;
+package com.example.manageEmployees.Employee;
 
 import org.springframework.stereotype.Service;
 

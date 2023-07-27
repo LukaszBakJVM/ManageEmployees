@@ -1,4 +1,4 @@
-package com.example.manageemployees.Company;
+package com.example.manageEmployees.Company;
 
 
 import org.springframework.http.ResponseEntity;
