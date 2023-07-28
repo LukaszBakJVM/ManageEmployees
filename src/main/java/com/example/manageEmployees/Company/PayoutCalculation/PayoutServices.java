@@ -24,8 +24,6 @@ public class PayoutServices {
     }
 
     public void calculate() {
-        List<String> strings = contractTypeServices.allContractType();
-
         List<Employee> all = employeeRepository.findAll();
         for (Employee e : all) {
             int id = e.getContractType().getId();
