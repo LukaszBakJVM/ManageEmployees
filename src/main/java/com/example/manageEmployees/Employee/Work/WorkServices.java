@@ -21,10 +21,8 @@ public class WorkServices {
     void start(long id){
 
         Employee employee = repository.findById(id).orElseThrow();
-
         long timeWork =employee.getTimeWork();
-
-       if (employee.getStartWork()==null){
+        if (employee.getStartWork()==null){
            employee.setStartWork(LocalDateTime.now());
        }else {
            employee.setEndWork(LocalDateTime.now());

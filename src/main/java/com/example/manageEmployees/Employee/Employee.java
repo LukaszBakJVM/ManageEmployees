@@ -2,11 +2,15 @@ package com.example.manageEmployees.Employee;
 
 
 import com.example.manageEmployees.Company.ContractType;
+import com.example.manageEmployees.Company.PayoutCalculation.PayoutCalculation;
+import com.example.manageEmployees.Employee.History.History;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -33,6 +37,10 @@ public class Employee {
     @ManyToOne()
 
     private ContractType contractType;
+    @OneToOne
+    private History history;
+    @ManyToMany
+    private List<PayoutCalculation>payoutCalculations=new ArrayList<>();
 
     public Employee() {
     }
@@ -107,5 +115,21 @@ public class Employee {
 
     public void setTimeWork(long timeWork) {
         this.timeWork = timeWork;
+    }
+
+    public History getHistory() {
+        return history;
+    }
+
+    public void setHistory(History history) {
+        this.history = history;
+    }
+
+    public List<PayoutCalculation> getPayoutCalculations() {
+        return payoutCalculations;
+    }
+
+    public void setPayoutCalculations(List<PayoutCalculation> payoutCalculations) {
+        this.payoutCalculations = payoutCalculations;
     }
 }

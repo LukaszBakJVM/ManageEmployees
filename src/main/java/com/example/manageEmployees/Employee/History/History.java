@@ -1,6 +1,7 @@
 package com.example.manageEmployees.Employee.History;
 
 
+import com.example.manageEmployees.Employee.Employee;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -19,6 +20,9 @@ public class History {
 
     private LocalDateTime endWork;
     private long timeWork;
+
+    @OneToOne
+   private Employee employee;
 
 
 }
