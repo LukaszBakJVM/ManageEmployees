@@ -2,9 +2,11 @@ package com.example.manageEmployees.Company.PayoutCalculation;
 
 import com.example.manageEmployees.Company.ContractType.ContractTypeServices;
 
+import com.example.manageEmployees.Employee.Employee;
 import com.example.manageEmployees.Employee.EmployeeRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 
 
 @Service
@@ -20,15 +22,17 @@ public class PayoutServices {
         this.contractTypeServices = contractTypeServices;
 
     }
- public    void calculate(){
-        contractTypeServices.allContractType();
 
-       /* List<Employee> all = employeeRepository.findAll();
-       // for (Employee e:all) {
-            e.getTimeWork();
-           // if (e.getContractType().getType().equals(strings.get(0))){
+    public void calculate() {
+        List<String> strings = contractTypeServices.allContractType();
 
-            }*/
+        List<Employee> all = employeeRepository.findAll();
+        for (Employee e : all) {
+            int id = e.getContractType().getId();
+
+
+
+            }
         }
 
     }

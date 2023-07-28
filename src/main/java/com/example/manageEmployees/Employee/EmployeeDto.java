@@ -8,7 +8,7 @@ public class EmployeeDto {
     private String firstName;
     private String lastName;
     private int age;
-    private double paycheck;
+    private double rate;
     private   int contractType;
 
 
@@ -45,12 +45,12 @@ public class EmployeeDto {
         this.age = age;
     }
 
-    public double getPaycheck() {
-        return paycheck;
+    public double getRate() {
+        return rate;
     }
 
-    public void setPaycheck(double paycheck) {
-        this.paycheck = paycheck;
+    public void setRate(double rate) {
+        this.rate = rate;
     }
 
     public int getContractType() {

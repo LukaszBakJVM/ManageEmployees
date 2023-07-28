@@ -1,9 +1,5 @@
 package com.example.manageEmployees.Company.ContractType;
-
-
 import org.springframework.stereotype.Component;
-
-
 import java.util.List;
 
 

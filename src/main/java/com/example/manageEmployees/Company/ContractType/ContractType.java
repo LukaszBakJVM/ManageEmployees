@@ -1,10 +1,7 @@
 package com.example.manageEmployees.Company.ContractType;
-
-import com.example.manageEmployees.Employee.Employee;
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
-import java.util.List;
+
 @Entity
 
 public class ContractType {
@@ -15,8 +12,7 @@ public class ContractType {
     private String type;
 
 
-@OneToMany(mappedBy = "contractType")
-  private List<Employee>employees=new ArrayList<>();
+
 
     public ContractType() {
     }
@@ -37,11 +33,5 @@ public class ContractType {
         this.type = type;
     }
 
-    public List<Employee> getEmployees() {
-        return employees;
-    }
 
-    public void setEmployees(List<Employee> employees) {
-        this.employees = employees;
-    }
 }

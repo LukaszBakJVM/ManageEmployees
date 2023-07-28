@@ -26,6 +26,8 @@ public class Employee {
     @Min(value = 18)
     @Column(name = "Wiek")
     private int age;
+    @Column (name = "stawka")
+    private double rate;
 
     @Column (name = "dochod")
     private double paycheck;
@@ -75,6 +77,14 @@ public class Employee {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public double getRate() {
+        return rate;
+    }
+
+    public void setRate(double rate) {
+        this.rate = rate;
     }
 
     public double getPaycheck() {

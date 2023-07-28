@@ -19,7 +19,7 @@ public class EmployeeMapper {
         employee.setFirstName(dto.getFirstName());
         employee.setLastName(dto.getLastName());
         employee.setAge(dto.getAge());
-        employee.setPaycheck(dto.getPaycheck());
+        employee.setRate(dto.getRate());
         ContractType contractType = contractTypeRepository.findById(dto.getContractType()).orElseThrow();
         employee.setContractType(contractType);
         return employee;
@@ -30,7 +30,7 @@ public class EmployeeMapper {
         dto.setFirstName(employee.getFirstName());
         dto.setLastName(employee.getLastName());
         dto.setAge(employee.getAge());
-        dto.setPaycheck(employee.getPaycheck());
+        dto.setRate(employee.getRate());
         dto.setContractType(employee.getContractType().getId());
         return dto;
     }
