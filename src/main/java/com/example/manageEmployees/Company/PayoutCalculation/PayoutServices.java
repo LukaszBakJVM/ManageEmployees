@@ -29,12 +29,8 @@ public class PayoutServices {
         List<Employee> all = employeeRepository.findAll();
         for (Employee e : all) {
             int id = e.getContractType().getId();
-
-
-
-            }
+           }
         }
-
-    }
+}
 
 
