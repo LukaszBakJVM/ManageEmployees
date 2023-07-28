@@ -25,10 +25,16 @@ public class PayoutServices {
 
     public void calculate() {
         List<Employee> all = employeeRepository.findAll();
-        for (Employee e : all) {
-            int id = e.getContractType().getId();
+        for (Employee employee : all) {
+            int id = employee.getContractType().getId();
+            long timeWork = employee.getTimeWork();
+            int age = employee.getAge();
+
+
+                
+            }
            }
         }
-}
+
 
 
