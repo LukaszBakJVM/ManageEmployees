@@ -1,7 +1,7 @@
 package com.example.manageEmployees.Employee;
 
-import com.example.manageEmployees.Company.ContractType;
-import com.example.manageEmployees.Company.ContractTypeRepository;
+import com.example.manageEmployees.Company.ContractType.ContractType;
+import com.example.manageEmployees.Company.ContractType.ContractTypeRepository;
 import org.springframework.stereotype.Service;
 
 

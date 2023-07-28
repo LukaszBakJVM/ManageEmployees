@@ -1,7 +1,7 @@
 package com.example.manageEmployees.Employee;
 
 
-import com.example.manageEmployees.Company.ContractType;
+import com.example.manageEmployees.Company.ContractType.ContractType;
 import com.example.manageEmployees.Company.PayoutCalculation.PayoutCalculation;
 import com.example.manageEmployees.Employee.History.History;
 import jakarta.persistence.*;

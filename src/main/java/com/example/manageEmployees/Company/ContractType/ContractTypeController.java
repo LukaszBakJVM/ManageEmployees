@@ -1,4 +1,4 @@
-package com.example.manageEmployees.Company;
+package com.example.manageEmployees.Company.ContractType;
 
 
 import org.springframework.http.ResponseEntity;

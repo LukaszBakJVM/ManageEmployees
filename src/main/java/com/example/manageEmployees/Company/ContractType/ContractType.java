@@ -1,4 +1,4 @@
-package com.example.manageEmployees.Company;
+package com.example.manageEmployees.Company.ContractType;
 
 import com.example.manageEmployees.Employee.Employee;
 import jakarta.persistence.*;

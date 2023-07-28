@@ -1,18 +1,20 @@
-package com.example.manageEmployees.Company;
+package com.example.manageEmployees.Company.ContractType;
 
-import org.springframework.stereotype.Service;
+
+import org.springframework.stereotype.Component;
+
 
 import java.util.List;
 
 
-@Service
+@Component
 public class ContractTypeServices {
     private final ContractTypeRepository repository;
 
     public ContractTypeServices(ContractTypeRepository repository) {
         this.repository = repository;
     }
-    List<String> allContractType(){
+  public   List<String> allContractType(){
         return repository.findAll()
                 .stream().map(ContractType::getType)
                 .toList();
