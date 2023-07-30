@@ -4,10 +4,10 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Calculations {
-    public double ZUS;
+    private double ZUS;
     private final double VAT_23=0.23;
 
-    double UoP(long timeWork,int age,double rate){
+  public   double UoP(long timeWork,int age,double rate){
         double payment;
         if (age<=26){
             payment=rate;
@@ -21,7 +21,7 @@ public class Calculations {
 
     }
 
-     double UZ (long timeWork,int age,double rate){
+   public   double UZ (long timeWork,int age,double rate){
          double payment=rate*timeWork;
         if (age<=26){
           return payment;
@@ -33,11 +33,12 @@ public class Calculations {
         return payment-(payment*0.2);
 
     }
-    double B2b(long timeWork,double rate){
+  public   double B2b(long timeWork,double rate){
         double payment =timeWork*rate;
 return payment+(payment*VAT_23)  ;
     }
 
-
-
+    public double getZUS() {
+        return ZUS;
+    }
 }

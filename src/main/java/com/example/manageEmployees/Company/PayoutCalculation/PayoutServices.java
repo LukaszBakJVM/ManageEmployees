@@ -1,5 +1,6 @@
 package com.example.manageEmployees.Company.PayoutCalculation;
 
+import com.example.manageEmployees.Company.ContractType.Calculations.Calculations;
 import com.example.manageEmployees.Company.ContractType.ContractTypeServices;
 
 import com.example.manageEmployees.Employee.Employee;
@@ -12,11 +13,13 @@ import java.util.List;
 @Service
 public class PayoutServices {
     private final PayoutRepository payoutRepository;
+    private final Calculations calculations;
     private final EmployeeRepository employeeRepository;
     private final ContractTypeServices contractTypeServices;
 
-    public PayoutServices(PayoutRepository payoutRepository, EmployeeRepository employeeRepository, ContractTypeServices contractTypeServices) {
+    public PayoutServices(PayoutRepository payoutRepository, Calculations calculations, EmployeeRepository employeeRepository, ContractTypeServices contractTypeServices) {
         this.payoutRepository = payoutRepository;
+        this.calculations = calculations;
         this.employeeRepository = employeeRepository;
 
         this.contractTypeServices = contractTypeServices;
@@ -24,15 +27,34 @@ public class PayoutServices {
     }
 
     public void calculate() {
+        double paycheck;
         List<Employee> all = employeeRepository.findAll();
         for (Employee employee : all) {
             int id = employee.getContractType().getId();
             long timeWork = employee.getTimeWork();
             int age = employee.getAge();
-
-
+            double rate = employee.getRate();
+            switch (id){
+                case 1:
+                paycheck = calculations.UoP(timeWork, age, rate);
+                employee.setPaycheck(paycheck);
+                break;
+                case 2:
+                    paycheck = calculations.UZ(timeWork, age, rate);
+                employee.setPaycheck(paycheck);
+                break;
+                case 3:
+                    paycheck = calculations.B2b(timeWork, rate);
+                    employee.setPaycheck(paycheck);
+                    break;
+          
                 
             }
+            double zus = calculations.getZUS();
+
+
+
+        }
            }
         }
 
