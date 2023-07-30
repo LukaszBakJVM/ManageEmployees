@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Calculations {
-    private double ZUS;
+    public double ZUS;
     private final double VAT_23=0.23;
 
     double UoP(long timeWork,int age,double rate){
