@@ -26,7 +26,7 @@ public class WorkServices {
            employee.setStartWork(LocalDateTime.now());
        }else {
            employee.setEndWork(LocalDateTime.now());
-           long between = ChronoUnit.MINUTES.between(employee.getStartWork(), employee.getEndWork());
+           long between = ChronoUnit.SECONDS.between(employee.getStartWork(), employee.getEndWork());
            timeWork +=between;
            employee.setTimeWork(timeWork);
            employee.setStartWork(null);

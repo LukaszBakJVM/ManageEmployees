@@ -1,47 +1,34 @@
 package com.example.manageEmployees.Company.PayoutCalculation;
 
-import com.example.manageEmployees.Employee.Employee;
-import jakarta.persistence.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import jakarta.persistence.*;
+import org.hibernate.validator.constraints.UniqueElements;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 
 @Entity
 public class PayoutCalculation {
+    private final DateTimeFormatter datePattern = DateTimeFormatter.ofPattern("yyyy-");
+
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    private double netto;
-    private double brutto;
+    @UniqueElements
+     private String localDateTime =LocalDateTime.now().format(datePattern);
+
     private double zus;
-    @ManyToMany(mappedBy = "payoutCalculations")
-    private List<Employee>employees=new ArrayList<>();
+
 
     public PayoutCalculation() {
     }
 
-    public long getId() {
-        return id;
+    public String getLocalDateTime() {
+        return localDateTime;
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public double getNetto() {
-        return netto;
-    }
-
-    public void setNetto(double netto) {
-        this.netto = netto;
-    }
-
-    public double getBrutto() {
-        return brutto;
-    }
-
-    public void setBrutto(double brutto) {
-        this.brutto = brutto;
+    public void setLocalDateTime(String localDateTime) {
+        this.localDateTime = localDateTime;
     }
 
     public double getZus() {
@@ -50,13 +37,5 @@ public class PayoutCalculation {
 
     public void setZus(double zus) {
         this.zus = zus;
-    }
-
-    public List<Employee> getEmployees() {
-        return employees;
-    }
-
-    public void setEmployees(List<Employee> employees) {
-        this.employees = employees;
     }
 }

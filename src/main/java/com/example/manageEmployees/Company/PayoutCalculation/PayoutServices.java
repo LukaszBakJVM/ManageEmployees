@@ -1,31 +1,33 @@
 package com.example.manageEmployees.Company.PayoutCalculation;
 
 import com.example.manageEmployees.Company.ContractType.Calculations.Calculations;
-import com.example.manageEmployees.Company.ContractType.ContractTypeServices;
+
 
 import com.example.manageEmployees.Employee.Employee;
 import com.example.manageEmployees.Employee.EmployeeRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 
 @Service
 public class PayoutServices {
+
     private final PayoutRepository payoutRepository;
     private final Calculations calculations;
     private final EmployeeRepository employeeRepository;
-    private final ContractTypeServices contractTypeServices;
 
-    public PayoutServices(PayoutRepository payoutRepository, Calculations calculations, EmployeeRepository employeeRepository, ContractTypeServices contractTypeServices) {
+
+    public PayoutServices(PayoutRepository payoutRepository, Calculations calculations, EmployeeRepository employeeRepository) {
         this.payoutRepository = payoutRepository;
         this.calculations = calculations;
         this.employeeRepository = employeeRepository;
 
-        this.contractTypeServices = contractTypeServices;
+
 
     }
-
+@Transactional
     public void calculate() {
         double paycheck;
         List<Employee> all = employeeRepository.findAll();
@@ -51,6 +53,10 @@ public class PayoutServices {
                 
             }
             double zus = calculations.getZUS();
+
+
+
+
 
 
 
