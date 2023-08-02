@@ -2,20 +2,18 @@ package com.example.manageEmployees.Company.PayoutCalculation;
 
 
 import jakarta.persistence.*;
-import org.hibernate.validator.constraints.UniqueElements;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 
 @Entity
 public class PayoutCalculation {
-    private final DateTimeFormatter datePattern = DateTimeFormatter.ofPattern("yyyy-");
+  //  private final DateTimeFormatter datePattern = DateTimeFormatter.ofPattern("yyyy-MM-dd-HH-mm");
 
+//=LocalDateTime.now().format(datePattern);
 
     @Id
-    @UniqueElements
-     private String localDateTime =LocalDateTime.now().format(datePattern);
+
+     private String localDateTime ;
 
     private double zus;
 
