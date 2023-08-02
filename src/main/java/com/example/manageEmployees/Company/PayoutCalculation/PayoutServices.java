@@ -60,7 +60,7 @@ public class PayoutServices {
 
         }
         payoutRepository.save(createEntry());
-        calculations.setZUS(0);
+
 
     }
     private PayoutCalculation createEntry(){
