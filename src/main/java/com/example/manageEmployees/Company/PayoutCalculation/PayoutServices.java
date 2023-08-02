@@ -15,8 +15,8 @@ import java.util.List;
 
 @Service
 public class PayoutServices {
-      private final DateTimeFormatter datePattern = DateTimeFormatter.ofPattern("yyyy-MM-dd-HH-mm");
-      private String timeStamp=LocalDateTime.now().format(datePattern);
+    private final DateTimeFormatter datePattern = DateTimeFormatter.ofPattern("yyyy-MM-dd-HH-mm");
+    private String timeStamp = LocalDateTime.now().format(datePattern);
 
     private final PayoutRepository payoutRepository;
     private final Calculations calculations;
@@ -29,9 +29,9 @@ public class PayoutServices {
         this.employeeRepository = employeeRepository;
 
 
-
     }
-@Transactional
+
+    @Transactional
     public void calculate() {
         double paycheck;
         List<Employee> all = employeeRepository.findAll();
@@ -40,33 +40,39 @@ public class PayoutServices {
             long timeWork = employee.getTimeWork();
             int age = employee.getAge();
             double rate = employee.getRate();
-            switch (id){
+            switch (id) {
                 case 1:
-                paycheck = calculations.UoP(timeWork, age, rate);
-                employee.setPaycheck(paycheck);
-                break;
+                    paycheck = calculations.UoP(timeWork, age, rate);
+                    employee.setPaycheck(paycheck);
+                    break;
                 case 2:
                     paycheck = calculations.UZ(timeWork, age, rate);
-                employee.setPaycheck(paycheck);
-                break;
+                    employee.setPaycheck(paycheck);
+                    break;
                 case 3:
                     paycheck = calculations.B2b(timeWork, rate);
                     employee.setPaycheck(paycheck);
                     break;
-          
-                
+
+
             }
-            double zus = calculations.getZUS();
-
-
-
-
-
 
 
         }
-           }
-        }
+        payoutRepository.save(createEntry());
+        calculations.setZUS(0);
+
+    }
+    private PayoutCalculation createEntry(){
+        String time= timeStamp;
+        double zus =calculations.getZUS();
+        return new PayoutCalculation(time,zus);
+
+    }
+}
+
+
+
 
 
 

@@ -10,6 +10,8 @@ public class PayoutCalculation {
 
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
      private String localDateTime ;
 
@@ -17,6 +19,19 @@ public class PayoutCalculation {
 
 
     public PayoutCalculation() {
+    }
+
+    public PayoutCalculation(String localDateTime, double zus) {
+        this.localDateTime = localDateTime;
+        this.zus = zus;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getLocalDateTime() {

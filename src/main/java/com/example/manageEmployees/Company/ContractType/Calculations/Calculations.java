@@ -41,4 +41,8 @@ return payment+(payment*VAT_23)  ;
     public double getZUS() {
         return ZUS;
     }
+
+    public void setZUS(double ZUS) {
+        this.ZUS = ZUS;
+    }
 }
