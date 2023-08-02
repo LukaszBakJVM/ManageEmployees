@@ -7,9 +7,7 @@ import jakarta.persistence.*;
 
 @Entity
 public class PayoutCalculation {
-  //  private final DateTimeFormatter datePattern = DateTimeFormatter.ofPattern("yyyy-MM-dd-HH-mm");
 
-//=LocalDateTime.now().format(datePattern);
 
     @Id
 

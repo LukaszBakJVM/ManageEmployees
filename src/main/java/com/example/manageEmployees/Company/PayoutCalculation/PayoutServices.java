@@ -8,11 +8,15 @@ import com.example.manageEmployees.Employee.EmployeeRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 
 @Service
 public class PayoutServices {
+      private final DateTimeFormatter datePattern = DateTimeFormatter.ofPattern("yyyy-MM-dd-HH-mm");
+      private String timeStamp=LocalDateTime.now().format(datePattern);
 
     private final PayoutRepository payoutRepository;
     private final Calculations calculations;
