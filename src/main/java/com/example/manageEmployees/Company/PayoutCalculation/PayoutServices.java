@@ -8,6 +8,9 @@ import com.example.manageEmployees.Employee.EmployeeRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -59,16 +62,31 @@ public class PayoutServices {
 
 
         }
-        payoutRepository.save(createEntry());
+        PayoutCalculation save = payoutRepository.save(createEntry());
+
 
 
     }
     private PayoutCalculation createEntry(){
         String time= timeStamp;
         double zus =calculations.getZUS();
+        writeToFile(zus,time);
         return new PayoutCalculation(time,zus);
 
     }
+    private void writeToFile(double zus ,String time){
+        Iterable<PayoutCalculation> all = payoutRepository.findAll();
+        try(
+                var file =new FileWriter(time);
+                var buffer=new BufferedWriter(file)
+                ) {
+            buffer.write(String.valueOf(zus));
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }
 
 

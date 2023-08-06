@@ -49,4 +49,14 @@ public class PayoutCalculation {
     public void setZus(double zus) {
         this.zus = zus;
     }
+
+
+    @Override
+    public String toString() {
+        return "PayoutCalculation{" +
+                "id=" + id +
+                ", localDateTime='" + localDateTime + '\'' +
+                ", zus=" + zus +
+                '}';
+    }
 }
