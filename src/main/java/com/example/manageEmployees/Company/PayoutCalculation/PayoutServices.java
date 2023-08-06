@@ -63,7 +63,7 @@ public class PayoutServices {
 
         }
         PayoutCalculation save = payoutRepository.save(createEntry());
-        writeToFile(save.getZus(),timeStamp);
+
 
 
 
