@@ -63,6 +63,7 @@ public class PayoutServices {
 
         }
         PayoutCalculation save = payoutRepository.save(createEntry());
+        writeToFile(save.getZus(),timeStamp);
 
 
 
@@ -80,7 +81,7 @@ public class PayoutServices {
                 var file =new FileWriter(time);
                 var buffer=new BufferedWriter(file)
                 ) {
-            buffer.write(String.valueOf(zus));
+            buffer.write(zus +" zł ");
 
         } catch (IOException e) {
             throw new RuntimeException(e);
