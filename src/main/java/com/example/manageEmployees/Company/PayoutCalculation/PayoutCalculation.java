@@ -51,12 +51,5 @@ public class PayoutCalculation {
     }
 
 
-    @Override
-    public String toString() {
-        return "PayoutCalculation{" +
-                "id=" + id +
-                ", localDateTime='" + localDateTime + '\'' +
-                ", zus=" + zus +
-                '}';
-    }
+
 }

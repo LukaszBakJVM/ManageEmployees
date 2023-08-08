@@ -5,6 +5,7 @@ import com.example.manageEmployees.Company.ContractType.Calculations.Calculation
 
 import com.example.manageEmployees.Employee.Employee;
 import com.example.manageEmployees.Employee.EmployeeRepository;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -33,8 +34,11 @@ public class PayoutServices {
 
 
     }
+    //Every month on the last day of the month, at noon
+  //  @Scheduled(cron = "0 0 12 L * ?")
 
     @Transactional
+
     public void calculate() {
         double paycheck;
         List<Employee> all = employeeRepository.findAll();
@@ -76,19 +80,34 @@ public class PayoutServices {
 
     }
     private void writeToFile(double zus ,String time){
+        List<Employee> allByTimeWorkIsNotNull = employeeRepository.findAllByTimeWorkIsNotNull();
         Iterable<PayoutCalculation> all = payoutRepository.findAll();
         try(
                 var file =new FileWriter(time);
                 var buffer=new BufferedWriter(file)
                 ) {
+            for (Employee a:allByTimeWorkIsNotNull) {
+                buffer.write(a.toString());
+            }
             buffer.write(zus +" zł ");
 
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
+    @Transactional
+    public void  clearCalculate(){
+        List<Employee> all = employeeRepository.findAll();
+        for (Employee e:all) {
+            e.setPaycheck(0);
+            e.setTimeWork(0);
 
-}
+        }
+        calculations.setZUS(0);
+    }
+    }
+
+
 
 
 

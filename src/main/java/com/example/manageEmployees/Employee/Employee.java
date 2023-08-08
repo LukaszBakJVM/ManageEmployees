@@ -142,4 +142,14 @@ public class Employee {
     public void setPayoutCalculations(List<PayoutCalculation> payoutCalculations) {
         this.payoutCalculations = payoutCalculations;
     }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", paycheck=" + paycheck +
+                ", timeWork=" + timeWork +
+                '}';
+    }
 }
