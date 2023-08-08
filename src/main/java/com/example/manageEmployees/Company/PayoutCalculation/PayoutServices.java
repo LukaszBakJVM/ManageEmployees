@@ -72,6 +72,7 @@ public class PayoutServices {
 
 
     }
+
     private PayoutCalculation createEntry(){
         String time= timeStamp;
         double zus =calculations.getZUS();
@@ -96,6 +97,7 @@ public class PayoutServices {
             throw new RuntimeException(e);
         }
     }
+    @Scheduled(cron = "0 0 22 20 1/1 ? ")
     @Transactional
     public void  clearCalculate(){
         List<Employee> all = employeeRepository.findAll();
