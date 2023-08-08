@@ -81,13 +81,14 @@ public class PayoutServices {
     }
     private void writeToFile(double zus ,String time){
         List<Employee> allByTimeWorkIsNotNull = employeeRepository.findAllByTimeWorkIsNotNull();
-        Iterable<PayoutCalculation> all = payoutRepository.findAll();
+
         try(
                 var file =new FileWriter(time);
                 var buffer=new BufferedWriter(file)
                 ) {
             for (Employee a:allByTimeWorkIsNotNull) {
                 buffer.write(a.toString());
+                buffer.newLine();
             }
             buffer.write(zus +" zł ");
 
