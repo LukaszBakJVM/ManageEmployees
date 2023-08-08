@@ -18,18 +18,18 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column (name = "Imie")
+    @Column(name = "Imie")
     private String firstName;
-    @Column (name = "Nazwisko")
+    @Column(name = "Nazwisko")
     private String lastName;
     @NotNull
     @Min(value = 18)
     @Column(name = "Wiek")
     private int age;
-    @Column (name = "stawka")
+    @Column(name = "stawka")
     private double rate;
 
-    @Column (name = "dochod")
+    @Column(name = "dochod")
     private double paycheck;
 
     private LocalDateTime startWork;
@@ -42,7 +42,7 @@ public class Employee {
     @OneToOne
     private History history;
     @ManyToMany
-    private List<PayoutCalculation>payoutCalculations=new ArrayList<>();
+    private List<PayoutCalculation> payoutCalculations = new ArrayList<>();
 
     public Employee() {
     }
@@ -145,11 +145,11 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Employee{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", paycheck=" + paycheck +
-                ", timeWork=" + timeWork +
-                '}';
+        return
+                "Imie:  " + firstName +
+                        "  Nazwisko: " + lastName +
+                        " Kwota wypłaty  " + paycheck +
+                        "  Czas pracy " + timeWork;
+
     }
 }
